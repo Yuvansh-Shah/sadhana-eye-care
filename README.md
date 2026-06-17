@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sadhana Eye Care
 
-## Getting Started
+A marketing website for an eye-care clinic in Mumbai, with an AI assistant that answers questions and books appointments.
 
-First, run the development server:
+## What it does
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This is a multi-page site for Sadhana Eye Care: home, about, services (with a page per service), technology, reviews, contact with an appointment form, and the usual FAQ and legal pages — around 15 pages in all. The clinic's details live in one typed data module that the whole site reads from, and the site is set up for search engines with a generated sitemap, robots file, OpenGraph image, and structured data.
+
+The main interactive feature is an AI assistant. A server-side API route calls a hosted Llama model with tool calling, so the assistant can answer questions and, when asked, book an appointment end-to-end by submitting the request to the clinic. The route includes per-IP rate limiting, message-length caps, and input validation.
+
+## Built with
+
+- Next.js 16 (App Router), React 19, TypeScript
+- Tailwind CSS v4
+- NVIDIA-hosted Llama (3.3 70B) for the assistant
+- Web3Forms for delivering appointment requests
+- Deployed on Netlify
+
+## Running it
+
+```
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Copy `.env.example` to `.env.local` and set `NVIDIA_API_KEY` and `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`. The `.env.local` file is gitignored and is not part of this repo.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Parts of this project were built with AI coding assistance.

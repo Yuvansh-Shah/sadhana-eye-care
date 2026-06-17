@@ -1,0 +1,10 @@
+# Netlify deployment configuration for the Next.js site.
+# Environment variables (NVIDIA_API_KEY, NVIDIA_MODEL,
+# NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY) must be set in the Netlify dashboard
+# under Site configuration → Environment variables — never commit them.
+
+[build]
+  command = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
